@@ -1,0 +1,150 @@
+
+<!-- floating creating button -->
+<button mat-fab class="mdc-fab app-fab--absolute" aria-label="Favorite" (click)="alert('nouveau prospect');">
+  <span class="mdc-fab__icon material-icons">add</span>
+</button>
+
+<!-- search fields ----------------------------------------------------------------------->
+<div>
+    <table class="example-full-width">
+      <tr>
+       <!-- free search -->
+       <!-- <td>            
+            <mat-form-field class="example-form-field">
+                <input matInput type="text" id="inputSearchTerm" placeholder="Recherche libre" 
+                [(ngModel)]="searchText"
+                (ngModelChange)="setFreeSearch(searchText)">
+                <button mat-button *ngIf="searchText" matSuffix mat-icon-button aria-label="Clear" (click)="searchText=''">
+                  <mat-icon>close</mat-icon>
+                </button>
+            </mat-form-field>
+        </td> -->
+
+        <td>
+            <!-- name search -->
+            <mat-form-field class="example-full-width">
+                <input matInput type="text" id="inputSearchName" placeholder="Par nom"
+                [(ngModel)]="searchName"
+                (ngModelChange)="setNameSearch(searchName)">
+                <button mat-button *ngIf="searchName" matSuffix mat-icon-button aria-label="Clear" (click)="searchName=''">
+                  <mat-icon>close</mat-icon>
+                </button>
+            </mat-form-field>
+        </td>
+
+        <td>
+            <!-- firstname search -->
+            <mat-form-field class="example-full-width">
+                <input matInput type="text" id="inputSearchFirstName" placeholder="Par prénom"
+                [(ngModel)]="searchFirstName"
+                (ngModelChange)="setFirstNameSearch(searchFirstName)">
+                <button mat-button *ngIf="searchFirstName" matSuffix mat-icon-button aria-label="Clear" (click)="searchFirstName=''">
+                  <mat-icon>close</mat-icon>
+                </button>
+            </mat-form-field>
+        </td>
+
+        <td>
+            <!-- email search -->
+            <mat-form-field class="example-full-width">
+                <input matInput type="text" id="inputSearchEmail" placeholder="Par email"
+                [(ngModel)]="searchEmail"
+                (ngModelChange)="setEmailSearch(searchEmail)">
+                <button mat-button *ngIf="searchEmail" matSuffix mat-icon-button aria-label="Clear" (click)="searchEmail=''">
+                  <mat-icon>close</mat-icon>
+                </button>
+            </mat-form-field>
+        </td>
+
+        <td>
+          <!-- search button -->
+          <button mat-raised-button (click)="launchSearch(event)">rechercher</button>
+        </td>
+      </tr>
+    </table>
+
+    <div style="margin:15px">
+      <mat-chip-list #chipList>
+          <!-- chips Recherche libre -->
+          <mat-chip *ngFor="let f of searchValuesObjInit[0].searchTerm; let i=index" 
+              [selectable]="selectable"
+              [removable]="removableChips" 
+              (removed)="removeChips(i, 0)">
+            {{f}}
+            <mat-icon matChipRemove *ngIf="removableChips">close</mat-icon>
+          </mat-chip>
+          <!-- chips Recherche par nom -->
+          <mat-chip *ngFor="let f of searchValuesObjInit[0].nom; let i=index" 
+              [selectable]="selectable"
+              [removable]="removableChips" 
+              (removed)="removeChips(i, 1)">
+            {{f}}
+            <mat-icon matChipRemove *ngIf="removableChips">close</mat-icon>
+          </mat-chip>
+          <!-- chips Recherche par prenom -->
+          <mat-chip *ngFor="let f of searchValuesObjInit[0].prenom; let i=index" 
+              [selectable]="selectable"
+              [removable]="removableChips" 
+              (removed)="removeChips(i, 2)">
+            {{f}}
+            <mat-icon matChipRemove *ngIf="removableChips">close</mat-icon>
+          </mat-chip>
+          <!-- chips Recherche par email -->
+          <mat-chip *ngFor="let f of searchValuesObjInit[0].email; let i=index" [selectable]="selectable"
+            [removable]="removableChips" (removed)="removeChips(i, 3)">
+            {{f}}
+            <mat-icon matChipRemove *ngIf="removableChips">close</mat-icon>
+          </mat-chip>
+
+      </mat-chip-list>
+    </div>
+    
+    <div style="display:block">
+     
+      <!-- trier par 
+      <select [ngModel]="selectedSortByValue" (ngModelChange)="changeTrierPar($event)">
+        <option *ngFor="let s of sortBy" [ngValue]="s.value" [selected]="prospectOrderByProperty == 's.value'">{{s.name}}</option>
+      </select>-->
+    <mat-form-field>
+      <mat-select placeholder="Trier par" [(ngModel)]="selectedSortByValue" (ngModelChange)="changeTrierPar($event)">
+          <mat-option *ngFor="let s of sortBy" [value]="s.value">{{s.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+     <!-- search result number -->
+     <div style="float:right">
+      <p id="resultNumber">{{filteredCount?.count}}</p>
+     </div>
+    </div>   
+</div>
+<!----------------------------------------------------------------------------------->
+<mat-divider></mat-divider>
+<!-- prospect list ----------------------------------------------------------------------->
+  <div *ngFor="let prospect of prospects | filter:searchValuesObjInit:filteredCount | orderBy:prospectOrderByProperty" class="line-prospect">
+    <mat-accordion class="example-headers-align" multi>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <table>
+              <tr><td style="font-weight: bold">{{prospect.ecole}}</td></tr>
+              <tr><td>{{prospect.prenom}} {{prospect.nom}}</td>
+              </tr>
+            </table>
+          </mat-panel-title>
+          <mat-panel-description>
+              <table>
+                <tr><td>{{prospect.email}}</td></tr>
+                <tr><td>{{prospect.projet}} projet(s)</td>
+                </tr>
+              </table>
+              <mat-icon>account_circle</mat-icon>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <mat-panel-description>
+          <span>12/02/2019</span>
+          <span>ecolems</span>
+          <span>Paul Martin</span>
+          <mat-icon>create</mat-icon>
+        </mat-panel-description>
+      </mat-expansion-panel>   
+    </mat-accordion>
+</div>

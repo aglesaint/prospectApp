@@ -1,0 +1,19 @@
+<h1 mat-dialog-title>{{dialogTitle}}</h1>
+
+<mat-divider></mat-divider>
+<div mat-dialog-content>
+    
+  <p>
+  <mat-radio-group [(ngModel)]="data.civilite" aria-label="Select an option">
+    <mat-radio-button value="1">Mme</mat-radio-button>
+    <mat-radio-button value="2">M.</mat-radio-button>
+  </mat-radio-group>
+  </p>
+
+  <p>{{data.civilite}}{{data.nom}}</p>
+
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Annuler</button>
+  <!-- <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button> -->
+</div>

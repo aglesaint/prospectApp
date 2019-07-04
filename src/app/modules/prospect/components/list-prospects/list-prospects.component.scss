@@ -1,0 +1,96 @@
+
+/**
+panel
+**/
+.example-action-buttons {
+  padding-bottom: 20px;
+}
+
+.example-headers-align .mat-expansion-panel-header-title,
+.example-headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+
+/*
+.mat-expansion-panel-header-description, .mat-expansion-panel-header-title {
+   max-width: 400px;
+}*/
+
+#resultNumber {
+   // float:right;
+    font-family: Roboto,"Helvetica Neue",sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.buttonHome{padding:15px}
+
+input {
+    margin: 10px
+}
+
+.line-prospect {
+    padding: 6px;
+    background-color: cornflowerblue;
+}
+
+
+/**
+floating icon
+**/
+
+.app-fab--absolute {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+}
+
+@media(min-width: 1024px) {
+   .app-fab--absolute {
+    bottom: 1.5rem;
+    right: 1.5rem;
+  }
+}
+
+/**
+chips
+**/
+
+.mat-chip {
+  font-family: Roboto,"Helvetica Neue",sans-serif;
+}
+
+.mat-chip.mat-standard-chip {
+  background-color: aliceblue;
+  color: rgba(0,0,0,.87);
+}
+
+/**
+trierPar
+**/
+.mat-select-value {
+    display: table-cell;
+    max-width:100%;
+    width: auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+/**
+table
+**/
+table#list-project {
+  width: auto;
+}
+table#list-project td {
+  width: 45px;
+}
+
+

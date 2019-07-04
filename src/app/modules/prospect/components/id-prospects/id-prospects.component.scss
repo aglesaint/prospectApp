@@ -1,0 +1,44 @@
+.container-identity {
+  padding: 16px;
+  margin-bottom: 30px;
+  height: 199px;
+  width: 250px;
+  display: inline-block;
+  position: relative;
+  margin: 0 auto;
+  background-color: antiquewhite;
+  
+  .modify {
+    cursor: pointer;
+  }
+}
+
+
+
+.md-48 {
+  font-size: 48px;
+}
+
+.entete-identity {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+
+.mat-card-content,
+.mat-card-subtitle {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+
+  p {
+    color: #685206;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 14px;
+    line-height: 18px;
+    margin: 0 0 10px;
+    text-align: justify;
+    text-justify: inter-word;
+  }
+}

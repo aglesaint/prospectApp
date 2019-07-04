@@ -1,0 +1,27 @@
+<div class="container-identity" (mouseover)="isActive = true" (mouseout)="isActive = false" [class.mat-elevation-z2]="!isActive"
+  [class.mat-elevation-z8]="isActive">
+  <mat-panel-title>
+    <div class="entete-identity">
+      <a>
+        <mat-icon class="md-48">face</mat-icon>
+      </a>
+      <a>
+        <mat-icon class="md-48 modify" (click)="openDialog()">create</mat-icon>
+      </a>
+    </div>
+  </mat-panel-title>
+  <mat-card-content>
+    <p>
+        {{civilite}} {{prenom}} {{nom}}
+    </p> 
+    <p>
+        né le 01/12/1998 à Rennes, France
+    </p> 
+    <p>
+        Marié, 3 enfants
+    </p>
+    <p>
+        06.67.56.31.78
+    </p>
+  </mat-card-content>
+</div>

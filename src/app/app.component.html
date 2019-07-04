@@ -1,0 +1,12 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center" *ngIf="router.url=='/'">
+<ul>
+    <li>
+      <h2><a [routerLink]="'/prospects'">recherche prospects</a></h2>
+    </li>
+  <li>
+    <h2><a [routerLink]="'/identity'">identité prospect</a></h2>
+  </li>
+</ul>
+</div>
+<router-outlet></router-outlet>
